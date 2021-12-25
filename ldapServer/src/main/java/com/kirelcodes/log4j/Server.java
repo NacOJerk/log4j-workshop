@@ -41,6 +41,7 @@ public class Server {
 					e.addAttribute("javaClassName", key);
 					e.addAttribute("javaFactory", key);
 					e.addAttribute("javaCodebase", codeBase);
+					System.out.println(e);
 					result.sendSearchEntry(e);
 					result.setResult(new LDAPResult(0, ResultCode.SUCCESS));
 				} catch (Exception e){
