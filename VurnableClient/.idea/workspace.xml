@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="523379a3-976d-479c-b49a-5a78f6417ad6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kirelcodes/log4j/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kirelcodes/log4j/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +42,21 @@
       <recent name="C:\Users\NacOJ\Desktop\Talpiot\" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="VurnableClienrt []" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+  <component name="RunManager" selected="Maven.VurnableClient [clean,-U,compile...]">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kirelcodes.log4j.Client" />
+      <module name="VurnableClient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kirelcodes.log4j.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VurnableClient [clean,-U,compile...]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -53,6 +68,7 @@
             <option name="goals">
               <list>
                 <option value="clean" />
+                <option value="-U" />
                 <option value="compile" />
                 <option value="assembly:single" />
               </list>
@@ -68,6 +84,15 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Maven.VurnableClient [clean,-U,compile...]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Client" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -83,6 +108,7 @@
       <workItem from="1640378649138" duration="147000" />
       <workItem from="1640378819753" duration="3131000" />
       <workItem from="1640437807843" duration="9000" />
+      <workItem from="1640445526594" duration="1286000" />
     </task>
     <servers />
   </component>
@@ -90,35 +116,35 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="140" y="91" width="1086" height="773" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1640432444201">
+    <state x="140" y="91" width="1086" height="773" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1640446784181">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="140" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872/492.-1050.1680.1010@0.0.1368.872" timestamp="1640432444201" />
-    <state x="140" y="91" width="1086" height="773" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872@0.0.1368.872" timestamp="1640379733985" />
+    <state x="140" y="91" width="1086" height="773" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872@0.0.1368.872" timestamp="1640446784181" />
     <state x="415" y="263" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1640379601172">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="415" y="263" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1368.872@0.0.1368.872" timestamp="1640379601172" />
-    <state width="882" height="234" key="GridCell.Tab.0.bottom" timestamp="1640437107674">
+    <state width="881" height="234" key="GridCell.Tab.0.bottom" timestamp="1640446835628">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state width="882" height="234" key="GridCell.Tab.0.bottom/0.0.1368.872/492.-1050.1680.1010@0.0.1368.872" timestamp="1640429015214" />
-    <state width="882" height="234" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1640437107674" />
-    <state width="882" height="234" key="GridCell.Tab.0.center" timestamp="1640437107674">
+    <state width="881" height="234" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1640446835628" />
+    <state width="881" height="234" key="GridCell.Tab.0.center" timestamp="1640446835628">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state width="882" height="234" key="GridCell.Tab.0.center/0.0.1368.872/492.-1050.1680.1010@0.0.1368.872" timestamp="1640429015214" />
-    <state width="882" height="234" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1640437107674" />
-    <state width="882" height="234" key="GridCell.Tab.0.left" timestamp="1640437107674">
+    <state width="881" height="234" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1640446835628" />
+    <state width="881" height="234" key="GridCell.Tab.0.left" timestamp="1640446835628">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state width="882" height="234" key="GridCell.Tab.0.left/0.0.1368.872/492.-1050.1680.1010@0.0.1368.872" timestamp="1640429015214" />
-    <state width="882" height="234" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1640437107674" />
-    <state width="882" height="234" key="GridCell.Tab.0.right" timestamp="1640437107674">
+    <state width="881" height="234" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1640446835628" />
+    <state width="881" height="234" key="GridCell.Tab.0.right" timestamp="1640446835628">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state width="882" height="234" key="GridCell.Tab.0.right/0.0.1368.872/492.-1050.1680.1010@0.0.1368.872" timestamp="1640429015214" />
-    <state width="882" height="234" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1640437107674" />
+    <state width="881" height="234" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1640446835628" />
     <state x="165" y="11" key="SettingsEditor" timestamp="1640378717618">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
