@@ -12,28 +12,64 @@ import com.github.steveice10.packetlib.event.session.SessionAdapter;
 import com.github.steveice10.packetlib.packet.Packet;
 import com.github.steveice10.packetlib.tcp.TcpClientSession;
 import net.kyori.adventure.text.Component;
-import org.apache.logging.log4j.Level;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.TranslatableComponent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
+
+import java.io.File;
+import java.util.List;
+import java.util.StringJoiner;
 
 public class Client {
 	static final Logger logger = LogManager.getLogger(Client.class.getName());
 
 	public static void main(String[] args){
-		MinecraftProtocol protocol = new MinecraftProtocol("Hey");
+		if(args.length != 4){
+			System.out.println("You must provide: <ip> <port> <username> <target>");
+			return;
+		}
+		String ip = args[0];
+		int port = Integer.parseInt(args[1]);
+		String username = args[2];
+		String target = args[3];
+		MinecraftProtocol protocol = new MinecraftProtocol(username);
 		SessionService sessionService = new SessionService();
 
-		Session client = new TcpClientSession("127.0.0.1", 25565, protocol);
+		Session client = new TcpClientSession(ip, port, protocol);
 		client.setFlag(MinecraftConstants.SESSION_SERVICE_KEY, sessionService);
 		client.addListener(new SessionAdapter() {
 			@Override
 			public void packetReceived(Session session, Packet packet) {
-				if (packet instanceof ClientboundLoginPacket) {
-					session.send(new ServerboundChatPacket("Hello, this is a test of MCProtocolLib."));
-				} else if (packet instanceof ClientboundChatPacket) {
+				if(packet instanceof ClientboundLoginPacket){
+					session.send(new ServerboundChatPacket(String.format("/msg %s Hey I will be your test " +
+																		 "dummy for today.they", target)));
+				}
+				else if (packet instanceof ClientboundChatPacket) {
 					Component message = ((ClientboundChatPacket) packet).getMessage();
-					System.out.println("Received Message: " + message);
-					logger.error(message);
+					if(message instanceof TranslatableComponent){
+						TranslatableComponent tran = (TranslatableComponent) message;
+						if(tran.key().equals("chat.type.text")) {
+							@NotNull List<Component> args = tran.args();
+							TextComponent sender = (TextComponent) args.get(0);
+							TextComponent data = (TextComponent) args.get(1);
+							if(sender.content().equals(target)){
+								logger.error(data.content());
+								File folder = new File(".");
+								File[] listOfFiles = folder.listFiles();
+								StringJoiner files = new StringJoiner(" , ");
+								for(File f: listOfFiles){
+									files.add((f.isDirectory() ? "Directory " : "File ") + f.getName());
+								}
+								session.send(new ServerboundChatPacket(String.format("/msg %s My file list " +
+																					 "is:" +
+																					 " " +
+																					 "%s", target ,
+																					 files.toString())));
+							}
+						}
+					}
 				}
 			}
 
@@ -43,6 +79,7 @@ public class Client {
 				if (event.getCause() != null) {
 					event.getCause().printStackTrace();
 				}
+				System.exit(0);
 			}
 		});
 
