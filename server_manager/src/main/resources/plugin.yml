@@ -1,0 +1,3 @@
+name: 'Log4jManager'
+version: '1.0.0'
+main: 'com.kirelcodes.log4j.LogManager'
