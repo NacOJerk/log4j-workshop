@@ -1,0 +1,12 @@
+services:
+  site:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./logs:/home/site/logs
+      - ./database:/home/site/database
+  commander:
+    build: commander
+    ports:
+      - "1337:1337"

@@ -22,5 +22,5 @@ RUN  echo 'file_uploader:file_uploader' | chpasswd
 
 RUN service ssh start
 
-EXPOSE 22 8080
+EXPOSE 2222 8080
 ENTRYPOINT ["/tmp/startUp.sh"]
