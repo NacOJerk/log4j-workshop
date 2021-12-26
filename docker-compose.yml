@@ -1,12 +1,15 @@
 services:
-  site:
-    build: .
+  ldap_server:
+    build: ldap_server
+    image: ldap_server
+    container_name: ldap_server
     ports:
-      - "80:80"
-    volumes:
-      - ./logs:/home/site/logs
-      - ./database:/home/site/database
-  commander:
-    build: commander
+      - "8081:8081"
+    command: "${HTTP_SERVER_IP}"
+  http_server:
+    build: http_server
+    image: http_server
+    container_name: http_server
     ports:
-      - "1337:1337"
+      - "8080:8080"
+      - "2222:2222"
