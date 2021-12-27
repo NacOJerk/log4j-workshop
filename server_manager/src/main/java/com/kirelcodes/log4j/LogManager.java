@@ -7,11 +7,11 @@ public class LogManager extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		getLogger().info("onEnable is called!");
-		getServer().getPluginManager().registerEvents(new PlayerListener(System.getenv("SERVER_IP"), 25565), this);
+		getServer().getPluginManager().registerEvents(new PlayerListener(System.getenv("SERVER_IP"), 25565, System.getenv("CLIENT_IMAGE")), this);
 	}
 
 	@Override
-	public void onDisable() {
+	public void onDisable() { 
 		getLogger().info("onDisable is called!");
 	}
 }

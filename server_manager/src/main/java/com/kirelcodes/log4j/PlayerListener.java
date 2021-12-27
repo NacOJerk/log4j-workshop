@@ -14,12 +14,14 @@ import java.util.List;
 public class PlayerListener implements Listener {
 	private static String BOT_NAME = "%s_dummy";
 	private static String CONTAINER_NAME = "%s_container";
+	private String _dockerImage;
 	private String HOST;
 	private int PORT;
 	List<String> bots;
-	public PlayerListener(String host, int port){
+	public PlayerListener(String host, int port, String dockerImage){
 		this.HOST = host;
 		this.PORT = port;
+		_dockerImage = dockerImage;
 		bots = new ArrayList<String>();
 	}
 
@@ -32,8 +34,8 @@ public class PlayerListener implements Listener {
 		else {
 			try {
 				Runtime.getRuntime()
-						.exec(String.format("docker run --name " + CONTAINER_NAME + " hacked_client %s " +
-													 "%d " + BOT_NAME + " %s", player, HOST, PORT, player,
+						.exec(String.format("docker run --name " + CONTAINER_NAME + " %s %s " +
+													 "%d " + BOT_NAME + " %s", player, _dockerImage, HOST, PORT, player,
 													 player));
 				bots.add(String.format(BOT_NAME, player));
 			} catch (IOException ex) {

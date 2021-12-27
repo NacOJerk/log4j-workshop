@@ -5,7 +5,8 @@ services:
     container_name: ldap_server
     ports:
       - "8081:8081"
-    command: "${SERVER_IP}"
+    command:
+      - "http://${SERVER_IP}:8081"
   http_server:
     build: http_server
     image: http_server
@@ -13,3 +14,16 @@ services:
     ports:
       - "8080:8080"
       - "2222:2222"
+  minecraft-server:
+    build:
+      context: server_manager
+      dockerfile: Dockerfile
+      args:
+        - SERVER_IP=${SERVER_IP}
+        - CLIENT_IMAGE=${CLIENT_IMAGE}
+    image: server_manager
+    container_name: server_manager
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "25565:25565"
