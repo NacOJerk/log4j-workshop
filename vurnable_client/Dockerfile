@@ -11,4 +11,6 @@ WORKDIR /client
 
 COPY --from=build /client/target/Client-jar-with-dependencies.jar client.jar
 
+RUN echo "ctf{GoodJobM8}" > flag.txt
+
 ENTRYPOINT ["java", "-jar", "-Dcom.sun.jndi.ldap.object.trustURLCodebase=true", "client.jar"]
