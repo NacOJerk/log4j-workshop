@@ -14,9 +14,9 @@ The goal of the workshop is to receive the contents of the flag.txt file, that c
 When ever a user logs into the minecraft server a specialized bot will be summoned for him. The bot will only log things the user types into the chat (thus allowing multiple users in the workshop at the same time). The player can upload the payload class via sftp to the http client.
 
 Server details:
-* LDAP Server - Hosted at <server-ip>:8081 will redirect all calls to the http server ```(ldap://<server-ip>:8081/[arg] -> http://<server-ip>:8080/[arg].class)```
-* HTTP Server - Hosted at <server-ip>:8080, has ssh enabled on port 2222 with the following login details:```username: file_uploader, password: file_uploader```
-* Minecraft Server - Hosted at <server-ip>:25565, the minecraft server itself is not supposed to be vulnerable to log4j.
+* LDAP Server - Hosted at ```<server-ip>:8081``` will redirect all calls to the http server ```(ldap://<server-ip>:8081/[arg] -> http://<server-ip>:8080/[arg].class)```
+* HTTP Server - Hosted at ```<server-ip>:8080```, has ssh enabled on port 2222 with the following login details:```username: file_uploader, password: file_uploader```
+* Minecraft Server - Hosted at ```<server-ip>:25565```, the minecraft server itself is not supposed to be vulnerable to log4j.
  
 ## Setup Guide
 In order to setup the workshop you must first build the vurnable client, go to the vurnable_client folder and run the following command:
