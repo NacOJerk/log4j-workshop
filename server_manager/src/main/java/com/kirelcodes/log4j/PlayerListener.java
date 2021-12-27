@@ -33,12 +33,12 @@ public class PlayerListener implements Listener {
 		}
 		else {
 			try {
-				getLogger().info(String.format("Player %s joined the server, spawning bot", player));
+				Bukkit.getLogger().info(String.format("Player %s joined the server, spawning bot", player));
 				Runtime.getRuntime()
 						.exec(String.format("docker run --name " + CONTAINER_NAME + " %s %s " +
 													 "%d " + BOT_NAME + " %s", player, _dockerImage, HOST, PORT, player,
 													 player));
-				getLogger().info(String.format("%s's bot spawned", player));
+				Bukkit.getLogger().info(String.format("%s's bot spawned", player));
 				bots.add(String.format(BOT_NAME, player));
 			} catch (IOException ex) {
 				ex.printStackTrace();
@@ -56,7 +56,7 @@ public class PlayerListener implements Listener {
 			try {
 				if(Bukkit.getPlayer(String.format(BOT_NAME, player)) != null)
 					Bukkit.getPlayer(String.format(BOT_NAME, player)).kickPlayer("bye");
-				getLogger().info(String.format("Player %s left the server, killing bot", player));
+				Bukkit.getLogger().info(String.format("Player %s left the server, killing bot", player));
 				Runtime.getRuntime()
 						.exec(String.format("docker rm -f " + CONTAINER_NAME, player));
 				bots.remove(String.format(BOT_NAME, player));
