@@ -6,7 +6,7 @@ The workshop aims to allow users to test out for themselves the log4j vurnabilli
 It contains the following things:
 * LDAP server that is rigged to redirect to a controlled http server
 * HTTP server that will return files uploaded to it and is running an ssh server on it in order to upload files
-* Minecraft server that will deal with create vurnable bots for the user to try and attack
+* Minecraft server that will deal with creating vulnerable bots for the user to try and attack
 * Vurnable Client a simple minecraft bot that has a flag.txt in the main directory
 
 The goal of the workshop is to receive the contents of the flag.txt file, that can be done via loggin into the minecraft server and sending the correct log4j payload with the correct java class.
