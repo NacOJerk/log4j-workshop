@@ -28,22 +28,22 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event){
 		String player = event.getPlayer().getName();
-		if(bots.contains(player)){
-			event.getPlayer().setGameMode(GameMode.CREATIVE);
-		}
-		else {
+		if(!bots.contains(player)) {
 			try {
 				Bukkit.getLogger().info(String.format("Player %s joined the server, spawning bot", player));
 				Runtime.getRuntime()
 						.exec(String.format("docker run --name " + CONTAINER_NAME + " %s %s " +
-													 "%d " + BOT_NAME + " %s", player, _dockerImage, HOST, PORT, player,
-													 player));
+											"%d " + BOT_NAME + " %s", player, _dockerImage, HOST, PORT,
+											player,
+											player));
 				Bukkit.getLogger().info(String.format("%s's bot spawned", player));
 				bots.add(String.format(BOT_NAME, player));
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
+
 		}
+		event.getPlayer().setGameMode(GameMode.CREATIVE);
 	}
 
 	@EventHandler
@@ -58,7 +58,7 @@ public class PlayerListener implements Listener {
 					Bukkit.getPlayer(String.format(BOT_NAME, player)).kickPlayer("bye");
 				Bukkit.getLogger().info(String.format("Player %s left the server, killing bot", player));
 				Runtime.getRuntime()
-						.exec(String.format("docker rm -f " + CONTAINER_NAME, player));
+						.exec(String.format("docker stop -f " + CONTAINER_NAME + " & docker rm -f " + CONTAINER_NAME, player, player));
 				bots.remove(String.format(BOT_NAME, player));
 			} catch (IOException ex) {
 				ex.printStackTrace();
