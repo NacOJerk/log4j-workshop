@@ -30,12 +30,14 @@ public class PlayerListener implements Listener {
 		String player = event.getPlayer().getName();
 		if(!bots.contains(player)) {
 			try {
-				Bukkit.getLogger().info(String.format("Player %s joined the server, spawning bot", player));
+				String dockerCommand = String.format("docker run %s %s " +
+													 "%d " + BOT_NAME + " %s", _dockerImage, HOST, PORT,
+													 player,
+													 player);
 				Runtime.getRuntime()
-						.exec(String.format("docker run --name %s %s " +
-											"%d " + BOT_NAME + " %s", _dockerImage, HOST, PORT,
-											player,
-											player));
+						.exec(dockerCommand);
+				Bukkit.getLogger().info(String.format("Player %s joined the server, spawning bot using: " +
+													  "\"%s\"", player, dockerCommand));
 				Bukkit.getLogger().info(String.format("%s's bot spawned", player));
 				bots.add(String.format(BOT_NAME, player));
 			} catch (IOException ex) {
