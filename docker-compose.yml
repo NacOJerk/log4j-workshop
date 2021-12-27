@@ -21,6 +21,9 @@ services:
       args:
         - SERVER_IP=${SERVER_IP}
         - CLIENT_IMAGE=${CLIENT_IMAGE}
+    environment:
+      - SERVER_IP=${SERVER_IP}
+      - CLIENT_IMAGE=${CLIENT_IMAGE}
     image: server_manager
     container_name: server_manager
     volumes:
