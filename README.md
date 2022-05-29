@@ -1,5 +1,5 @@
-# Log4Shell Workshop
-This repostitory wraps all the code, information and credit for the log4shell workshop
+# Log4Shell Minecraft Workshop - Log4J Vurnabillity
+This repostitory wraps all the code, information and credit for the log4shell workshop. It shows how to the log4j vurnabillity could be used to run code, specifically on minecraft clients
 
 ## Workshop details
 The workshop aims to allow users to test out for themselves the log4j vurnabillity without having to deal with all the techincal details around it.
